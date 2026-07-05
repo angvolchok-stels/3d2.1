@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Три ДЭ — Шторы</title>
+
+  <!-- ===== ПОДКЛЮЧЕНИЕ ШРИФТОВ ===== -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== ШАПКА ===== -->
+  <header class="header">
+    <div class="header-row">
+      <nav class="nav-left">
+        <a href="index.html#catalog" data-target="group1">Обои</a>
+        <a href="index.html#catalog" data-target="group2">Шторы</a>
+      </nav>
+
+      <a href="index.html" class="logo">
+        <span class="logo-text">три</span>
+        <span class="logo-icon">⮙</span>
+        <span class="logo-text">ДЭ</span>
+      </a>
+
+      <nav class="nav-right">
+        <a href="index.html#catalog" data-target="group1">Скатерти</a>
+        <a href="index.html#catalog" data-target="group1">Ковры</a>
+      </nav>
+    </div>
+
+    <div class="header-row services-row">
+      <nav class="nav-services">
+        <a href="primerka.html">Виртуальная примерка в интерьере</a>
+        <a href="pechat.html">Изготовление по вашим размерам и вашему изображению</a>
+        <a href="design.html">Дизайн-проект бесплатно</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== СТРАНИЦА ШТОРЫ ===== -->
+  <section class="product-page">
+    <div class="product-page-container">
+
+      <!-- ПОДЛОЖКА ПОД ЗАГОЛОВКОМ -->
+      <div class="product-title-wrapper">
+        <h1 class="product-title">
+          Интерьерные шторы с
+          <span class="accent">любым принтом</span>
+          и однотонные акцентные шторы из тканей
+          <span class="accent">отличного качества</span>.
+          Шторы под ваш
+          <span class="accent">индивидуальный замысел</span>
+          от
+          <span class="brand">△ три ДЭ △</span>
+        </h1>
+      </div>
+
+      <!-- ВКЛАДКИ (типы тканей) -->
+      <ul class="product-tabs">
+        <li><button class="product-tab active" data-tab="gabardine">Габардин</button></li>
+        <li><button class="product-tab" data-tab="chiffon">Фототюль (шифон)</button></li>
+        <li><button class="product-tab" data-tab="oxford">Водоотталкивающий оксфорд</button></li>
+        <li><button class="product-tab" data-tab="blackout">Блэкаут</button></li>
+      </ul>
+
+      <!-- ГАЛЕРЕЯ -->
+      <div class="product-gallery">
+        <div class="gallery-main">
+          <img src="https://via.placeholder.com/800x500/5B6E6E/FFFFFF?text=Шторы+Три+ДЭ" alt="Шторы" id="galleryMainImage" />
+        </div>
+        <div class="gallery-thumbs">
+          <img src="https://via.placeholder.com/120x80/5B6E6E/FFFFFF?text=1" alt="Фото 1" class="gallery-thumb active" data-img="https://via.placeholder.com/800x500/5B6E6E/FFFFFF?text=Шторы+Три+ДЭ+1" />
+          <img src="https://via.placeholder.com/120x80/7A8C8C/FFFFFF?text=2" alt="Фото 2" class="gallery-thumb" data-img="https://via.placeholder.com/800x500/7A8C8C/FFFFFF?text=Шторы+Три+ДЭ+2" />
+          <img src="https://via.placeholder.com/120x80/9EB7B7/FFFFFF?text=3" alt="Фото 3" class="gallery-thumb" data-img="https://via.placeholder.com/800x500/9EB7B7/FFFFFF?text=Шторы+Три+ДЭ+3" />
+        </div>
+      </div>
+
+      <!-- ===== КОНТЕНТ ВКЛАДОК ===== -->
+      <div class="product-content">
+
+        <!-- ГАБАРДИН -->
+        <div class="product-section active" id="section-gabardine">
+          <h2 class="product-section-title">Габардин</h2>
+          <div class="product-specs">
+            <ul>
+              <li><span class="spec-label">Цена:</span> 723 р/м²</li>
+              <li><span class="spec-label">Состав:</span> 100% полиэстер, ткань полотняного переплетения, имеет натуральную фактуру</li>
+              <li><span class="spec-label">Плотность:</span> легкая портьера</li>
+              <li><span class="spec-label">Прозрачность:</span> непрозрачная, но не затемняет, хорошо рассеивает свет</li>
+              <li><span class="spec-label">Наличие блеска:</span> ткань имеет выразительный блеск, изнаночная сторона матовая</li>
+            </ul>
+          </div>
+          <p class="product-description">
+            Габардин - это ткань полотняного плетения, плотная, непрозрачная, долговечная. Габардин состоит из 100% полиэстера, что гарантирует отсутствие въедливых пятен, простую стирку, разглаживаются заломы и морщины, габардин легко и просто гладить. Имеет лёгкий блеск, на ощупь ткань слегка фактурная и приятная.
+          </p>
+        </div>
+
+        <!-- ФОТОТЮЛЬ -->
+        <div class="product-section" id="section-chiffon">
+          <h2 class="product-section-title">Фототюль (шифон)</h2>
+          <div class="product-specs">
+            <ul>
+              <li><span class="spec-label">Цена:</span> 547 р/м²</li>
+              <li><span class="spec-label">Плотность:</span> лёгкая портьера</li>
+              <li><span class="spec-label">Прозрачность:</span> прозрачная, хорошо пропускает свет</li>
+              <li><span class="spec-label">Наличие блеска:</span> имеет лёгкий блеск</li>
+            </ul>
+          </div>
+          <p class="product-description">
+            ШИФОН (Фототюль) - это фотоштора из тюлевой ткани, плотность 50 гр/м², состоит из двух полотен, максимальная ширина одного полотна 1,48 м. Полотна не сшиваются. Тюль может повторять рисунок основной фотошторы или иметь свой уникальный дизайн. Печать наносится на тюль белого цвета.
+          </p>
+        </div>
+
+        <!-- ОКСФОРД -->
+        <div class="product-section" id="section-oxford">
+          <h2 class="product-section-title">Водоотталкивающий оксфорд (дюспо)</h2>
+          <div class="product-specs">
+            <ul>
+              <li><span class="spec-label">Цена:</span> 831 р/м²</li>
+              <li><span class="spec-label">Состав:</span> 100% полиэстер</li>
+              <li><span class="spec-label">Плотность:</span> 93 гр/м²</li>
+              <li><span class="spec-label">Особенность:</span> водоотталкивающая пропитка</li>
+            </ul>
+          </div>
+          <p class="product-description">
+            Штора для ванной с фотопринтом из водоотталкивающего полиэстрового материала полотняного плетения. Имеет эстетичный внешний вид и долговечность. Сверху шторы расположены люверсы из нержавеющей хромированной стали. Для крепления на карнизе в комплект входят пластиковые прозрачные кольца.
+          </p>
+        </div>
+
+        <!-- БЛЭКАУТ -->
+        <div class="product-section" id="section-blackout">
+          <h2 class="product-section-title">Блэкаут</h2>
+          <div class="product-specs">
+            <ul>
+              <li><span class="spec-label">Цена:</span> от 1200 р/м²</li>
+              <li><span class="spec-label">Светонепроницаемость:</span> 100%</li>
+              <li><span class="spec-label">Состав:</span> 100% полиэстер с акриловым покрытием</li>
+              <li><span class="spec-label">Теплоизоляция:</span> высокая</li>
+            </ul>
+          </div>
+          <p class="product-description">
+            Ткань блэкаут полностью блокирует солнечный свет, обеспечивая полную темноту в помещении. Идеально подходит для спален, домашних кинотеатров и помещений, где требуется затемнение. Обладает хорошей теплоизоляцией и шумопоглощением.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="footer">
+    <div class="footer-logo">⮙ Три <span>ДЭ</span></div>
+    <p>Текстильный декор премиум-класса</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Telegram</a>
+      <a href="#">VK</a>
+      <a href="#">YouTube</a>
+    </div>
+    <p class="copyright">© 2026 Три ДЭ. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== СКРИПТЫ ===== -->
+  <script>
+    // Вкладки
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.product-tab');
+      const sections = document.querySelectorAll('.product-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+
+          sections.forEach(section => section.classList.remove('active'));
+
+          const target = this.dataset.tab;
+          const activeSection = document.getElementById('section-' + target);
+          if (activeSection) {
+            activeSection.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // Галерея
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainImage = document.getElementById('galleryMainImage');
+      const thumbs = document.querySelectorAll('.gallery-thumb');
+
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+          thumbs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          mainImage.src = this.dataset.img;
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+

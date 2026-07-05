@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Квадратная спираль тегов</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 30%, #B8A697, #9F9083);
+      font-family: 'Segoe UI', 'Roboto', sans-serif;
+      padding: 20px;
+    }
+
+    .tag-cloud-spiral {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), 0 0 60px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .tag-cloud-spiral:hover {
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.35), 0 0 80px rgba(0, 0, 0, 0.15);
+    }
+
+    .tag-cloud-spiral .tag-item {
+      position: absolute;
+      color: #3d332b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      white-space: nowrap;
+      font-size: 18px;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .tag-cloud-spiral .tag-item:hover {
+      background: #d4af37;
+      color: #1a110a;
+      transform: translate(-50%, -50%) scale(1.2);
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+      border-color: rgba(212, 175, 55, 0.2);
+      z-index: 10;
+    }
+
+    @media (max-width: 700px) {
+      .tag-cloud-spiral {
+        width: 380px;
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .tag-cloud-spiral {
+        width: 280px;
+        height: 280px;
+      }
+      .tag-cloud-spiral .tag-item {
+        font-size: 12px !important;
+        padding: 2px 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tag-cloud-spiral" id="spiralContainer"></div>
+
+  <script>
+    // ===== ФИКСИРОВАННЫЙ РАЗМЕР КОНТЕЙНЕРА =====
+    const CONTAINER_SIZE = 600;
+
+    // ===== СПИСОК ТЕГОВ =====
+    const tags = [
+      'Шторы', 'Обои', 'Скатерти', 'Ковры', 'Пледы', 'Подушки',
+      'Пуфы', 'Стулья', '5D картины', 'Бахрома',
+      'Подушки-валики', 'Декоративные подушки', 'Подушки с бахромой', 'Картины', 'Зеркала',
+      'Текстиль', 'Декор', 'Интерьер',
+      'Премиум', 'Эксклюзив', 'Уют', 'Стиль', 'Качество', 'Дизайн', 'Идеи', 'Вдохновение',
+      '✦ Три ДЭ ✦'
+    ];
+
+    // ===== РАСЧЁТ ПОЗИЦИЙ ДЛЯ КВАДРАТНОЙ СПИРАЛИ =====
+    function getSpiralPositions(count, size, pad, step) {
+      const positions = [];
+      let left = pad;
+      let top = pad;
+      let right = size - pad;
+      let bottom = size - pad;
+      let direction = 0; // 0 = вправо, 1 = вниз, 2 = влево, 3 = вверх
+
+      for (let i = 0; i < count; i++) {
+        if (direction === 0) {
+          positions.push({ x: left, y: top });
+          left += step;
+          if (left >= right) {
+            left = right;
+            direction = 1;
+            top += step;
+          }
+        } else if (direction === 1) {
+          positions.push({ x: right, y: top });
+          top += step;
+          if (top >= bottom) {
+            top = bottom;
+            direction = 2;
+            right -= step;
+          }
+        } else if (direction === 2) {
+          positions.push({ x: right, y: bottom });
+          right -= step;
+          if (right <= left) {
+            right = left;
+            direction = 3;
+            bottom -= step;
+          }
+        } else if (direction === 3) {
+          positions.push({ x: left, y: bottom });
+          bottom -= step;
+          if (bottom <= top) {
+            bottom = top;
+            direction = 0;
+            left += step;
+          }
+        }
+      }
+      return positions;
+    }
+
+    // ===== СОЗДАНИЕ ТЕГОВ =====
+    const container = document.getElementById('spiralContainer');
+    const pad = 30;
+    const step = 45;
+
+    const positions = getSpiralPositions(tags.length, CONTAINER_SIZE, pad, step);
+
+    tags.forEach((tag, index) => {
+      const pos = positions[index] || { x: CONTAINER_SIZE / 2, y: CONTAINER_SIZE / 2 };
+      const a = document.createElement('a');
+      a.href = '#';
+      a.className = 'tag-item';
+      a.textContent = tag;
+      a.style.left = pos.x + 'px';
+      a.style.top = pos.y + 'px';
+
+      // Центральный тег — крупнее
+      if (tag === '✦ Три ДЭ ✦') {
+        a.style.fontSize = '32px';
+        a.style.fontWeight = '700';
+        a.style.color = '#5B6E6E';
+        a.style.background = 'rgba(255,255,255,0.08)';
+        a.style.borderColor = 'rgba(91,110,110,0.3)';
+      } else {
+        // Случайный размер для остальных
+        const sizes = [14, 16, 18, 20, 22, 24];
+        a.style.fontSize = sizes[Math.floor(Math.random() * sizes.length)] + 'px';
+      }
+
+      container.appendChild(a);
+    });
+  </script>
+
+</body>
+</html>

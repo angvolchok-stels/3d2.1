@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Три ДЭ — Обои</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    /* ===== ПСЕВДО-3D ОБЛАКО ТЕГОВ (ПЛОСКОЕ, НО ОБЪЁМНОЕ) ===== */
+    .tag-cloud-flat {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 16px 28px;
+      padding: 30px 20px;
+      margin: 10px auto 20px;
+      max-width: 1000px;
+      min-height: 140px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .tag-cloud-flat .tag-item {
+      color: #3d332b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 6px 18px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      line-height: 1.4;
+      font-size: 18px;
+    }
+
+    .tag-cloud-flat .tag-item:hover {
+      background: #d4af37;
+      color: #1a110a;
+      transform: scale(1.1) translateY(-2px);
+      box-shadow: 0 6px 24px rgba(212, 175, 55, 0.25);
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    /* РАЗНЫЙ РАЗМЕР ДЛЯ ЭФФЕКТА ГЛУБИНЫ */
+    .tag-cloud-flat .tag-item:nth-child(1) { font-size: 28px; opacity: 0.95; }
+    .tag-cloud-flat .tag-item:nth-child(2) { font-size: 20px; opacity: 0.7; }
+    .tag-cloud-flat .tag-item:nth-child(3) { font-size: 24px; opacity: 0.85; }
+    .tag-cloud-flat .tag-item:nth-child(4) { font-size: 18px; opacity: 0.65; }
+    .tag-cloud-flat .tag-item:nth-child(5) { font-size: 22px; opacity: 0.8; }
+    .tag-cloud-flat .tag-item:nth-child(6) { font-size: 16px; opacity: 0.6; }
+    .tag-cloud-flat .tag-item:nth-child(7) { font-size: 30px; opacity: 1; }
+
+    /* АДАПТИВ */
+    @media (max-width: 768px) {
+      .tag-cloud-flat {
+        gap: 10px 18px;
+        padding: 20px 16px;
+        min-height: 100px;
+      }
+      .tag-cloud-flat .tag-item {
+        font-size: 16px !important;
+        padding: 4px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .tag-cloud-flat {
+        gap: 8px 12px;
+        padding: 16px 12px;
+        min-height: 80px;
+      }
+      .tag-cloud-flat .tag-item {
+        font-size: 14px !important;
+        padding: 4px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-row">
+      <nav class="nav-left">
+        <a href="index.html#catalog" data-target="group1">Обои</a>
+        <a href="index.html#catalog" data-target="group2">Шторы</a>
+      </nav>
+      <a href="index.html" class="logo">
+        <span class="logo-text">три</span>
+        <span class="logo-icon">⮙</span>
+        <span class="logo-text">ДЭ</span>
+      </a>
+      <nav class="nav-right">
+        <a href="index.html#catalog" data-target="group1">Скатерти</a>
+        <a href="index.html#catalog" data-target="group1">Ковры</a>
+      </nav>
+    </div>
+    <div class="header-row services-row">
+      <nav class="nav-services">
+        <a href="primerka.html">Виртуальная примерка в интерьере</a>
+        <a href="pechat.html">Изготовление по вашим размерам и вашему изображению</a>
+        <a href="design.html">Дизайн-проект бесплатно</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== ОБЛАКО ТЕГОВ ===== -->
+  <div class="tag-cloud-flat">
+    <a href="oboi.html" class="tag-item">Обои</a>
+    <a href="shtory.html" class="tag-item">Шторы</a>
+    <a href="skaterti.html" class="tag-item">Скатерти</a>
+    <a href="kovry.html" class="tag-item">Ковры</a>
+    <a href="pledy.html" class="tag-item">Пледы</a>
+    <a href="podushki.html" class="tag-item">Подушки</a>
+    <a href="kartiny.html" class="tag-item">5D картины</a>
+  </div>
+
+  <!-- ===== СТРАНИЦА ОБОИ ===== -->
+  <section class="product-page">
+    <div class="product-page-container">
+
+      <div class="product-title-wrapper">
+        <h1 class="product-title">
+          Интерьерные обои с
+          <span class="accent">любым принтом</span>
+          и однотонные акцентные обои в рулонах
+          <span class="accent">отличного качества</span>
+          для. Обои под ваш
+          <span class="accent">индивидуальный замысел</span>
+          от
+          <span class="brand">△ три ДЭ △</span>
+        </h1>
+      </div>
+
+      <!-- ВКЛАДКИ -->
+      <ul class="product-tabs">
+        <li><button class="product-tab active" data-tab="paper">Бумага</button></li>
+        <li><button class="product-tab" data-tab="roll">Обои в рулонах</button></li>
+        <li><button class="product-tab" data-tab="relief">Рельеф</button></li>
+        <li><button class="product-tab" data-tab="canvas">Натуральный холст™</button></li>
+        <li><button class="product-tab" data-tab="fresco">Фреска</button></li>
+        <li><button class="product-tab" data-tab="grand">Бесшовная фреска Гранд</button></li>
+        <li><button class="product-tab" data-tab="classic">Бесшовная фреска Classic</button></li>
+        <li><button class="product-tab" data-tab="ultra">Бесшовная фреска Ultra</button></li>
+      </ul>
+
+      <!-- ГАЛЕРЕЯ -->
+      <div class="product-gallery">
+        <div class="gallery-main">
+          <img src="https://via.placeholder.com/800x500/5B6E6E/FFFFFF?text=Обои+Три+ДЭ" alt="Обои" id="galleryMainImage" />
+        </div>
+        <div class="gallery-thumbs">
+          <img src="https://via.placeholder.com/120x80/5B6E6E/FFFFFF?text=1" alt="Фото 1" class="gallery-thumb active" data-img="https://via.placeholder.com/800x500/5B6E6E/FFFFFF?text=Обои+Три+ДЭ+1" />
+          <img src="https://via.placeholder.com/120x80/7A8C8C/FFFFFF?text=2" alt="Фото 2" class="gallery-thumb" data-img="https://via.placeholder.com/800x500/7A8C8C/FFFFFF?text=Обои+Три+ДЭ+2" />
+          <img src="https://via.placeholder.com/120x80/9EB7B7/FFFFFF?text=3" alt="Фото 3" class="gallery-thumb" data-img="https://via.placeholder.com/800x500/9EB7B7/FFFFFF?text=Обои+Три+ДЭ+3" />
+          <img src="https://via.placeholder.com/120x80/B8A697/FFFFFF?text=4" alt="Фото 4" class="gallery-thumb" data-img="https://via.placeholder.com/800x500/B8A697/FFFFFF?text=Обои+Три+ДЭ+4" />
+        </div>
+      </div>
+
+      <!-- ===== КОНТЕНТ ВКЛАДОК ===== -->
+      <div class="product-content">
+
+        <!-- БУМАГА -->
+        <div class="product-section active" id="section-paper">
+          <h2 class="product-section-title">ШОВНЫЕ ОБОИ</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Испания</td></tr>
+              <tr><td>Ширина рулона:</td><td>100 см</td></tr>
+              <tr><td>Плотность:</td><td>120 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 2-х лет</td></tr>
+              <tr><td>Основа материала:</td><td>бумага</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Имеет гладкую матовую поверхность без глянца и текстуры.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- ОБОИ В РУЛОНАХ -->
+        <div class="product-section" id="section-roll">
+          <h2 class="product-section-title">ОБОИ В РУЛОНАХ</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Россия</td></tr>
+              <tr><td>Ширина рулона:</td><td>106 см</td></tr>
+              <tr><td>Плотность:</td><td>140 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 3-х лет</td></tr>
+              <tr><td>Основа материала:</td><td>флизелин</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Классические обои в рулонах. Широкий выбор цветов и фактур.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- РЕЛЬЕФ -->
+        <div class="product-section" id="section-relief">
+          <h2 class="product-section-title">РЕЛЬЕФНЫЕ ОБОИ</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Италия</td></tr>
+              <tr><td>Ширина рулона:</td><td>120 см</td></tr>
+              <tr><td>Плотность:</td><td>150 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 3-х лет</td></tr>
+              <tr><td>Основа материала:</td><td>винил</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Текстурированная поверхность с объёмным рисунком.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- НАТУРАЛЬНЫЙ ХОЛСТ -->
+        <div class="product-section" id="section-canvas">
+          <h2 class="product-section-title">НАТУРАЛЬНЫЙ ХОЛСТ™</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Германия</td></tr>
+              <tr><td>Ширина рулона:</td><td>110 см</td></tr>
+              <tr><td>Плотность:</td><td>200 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 5-ти лет</td></tr>
+              <tr><td>Основа материала:</td><td>хлопок</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Натуральная текстура холста, придаёт интерьеру благородство.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- ФРЕСКА -->
+        <div class="product-section" id="section-fresco">
+          <h2 class="product-section-title">ФРЕСКА</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Франция</td></tr>
+              <tr><td>Ширина рулона:</td><td>90 см</td></tr>
+              <tr><td>Плотность:</td><td>180 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 4-х лет</td></tr>
+              <tr><td>Основа материала:</td><td>флизелин</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Имитация ручной росписи. Идеально для акцентных стен.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- ГРАНД -->
+        <div class="product-section" id="section-grand">
+          <h2 class="product-section-title">БЕСШОВНАЯ ФРЕСКА ГРАНД</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Испания</td></tr>
+              <tr><td>Ширина рулона:</td><td>150 см</td></tr>
+              <tr><td>Плотность:</td><td>220 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 6-ти лет</td></tr>
+              <tr><td>Основа материала:</td><td>полиэстер</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Бесшовное покрытие для больших поверхностей. Максимальная износостойкость.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- CLASSIC -->
+        <div class="product-section" id="section-classic">
+          <h2 class="product-section-title">БЕСШОВНАЯ ФРЕСКА CLASSIC</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Италия</td></tr>
+              <tr><td>Ширина рулона:</td><td>130 см</td></tr>
+              <tr><td>Плотность:</td><td>190 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 4-х лет</td></tr>
+              <tr><td>Основа материала:</td><td>флизелин</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Классическая бесшовная фреска для спальни и гостиной.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+        <!-- ULTRA -->
+        <div class="product-section" id="section-ultra">
+          <h2 class="product-section-title">БЕСШОВНАЯ ФРЕСКА ULTRA</h2>
+          <div class="product-specs">
+            <table>
+              <tr><td>Производитель:</td><td>Германия</td></tr>
+              <tr><td>Ширина рулона:</td><td>160 см</td></tr>
+              <tr><td>Плотность:</td><td>250 г/м²</td></tr>
+              <tr><td>Защита от выцветания:</td><td>до 7-ми лет</td></tr>
+              <tr><td>Основа материала:</td><td>стеклохолст</td></tr>
+            </table>
+          </div>
+          <p class="product-description">Премиальная бесшовная фреска для самых требовательных интерьеров.</p>
+          <div class="product-certificates">
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+            <span class="cert-badge">GREENGUARD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="footer">
+    <div class="footer-logo">⮙ Три <span>ДЭ</span></div>
+    <p>Текстильный декор премиум-класса</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Telegram</a>
+      <a href="#">VK</a>
+      <a href="#">YouTube</a>
+    </div>
+    <p class="copyright">© 2026 Три ДЭ. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== СКРИПТЫ ===== -->
+  <script>
+    // ===== ВКЛАДКИ =====
+    document.addEventListener('DOMContentLoaded', function() {
+      const tabs = document.querySelectorAll('.product-tab');
+      const sections = document.querySelectorAll('.product-section');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+
+          sections.forEach(section => section.classList.remove('active'));
+
+          const target = this.dataset.tab;
+          const activeSection = document.getElementById('section-' + target);
+          if (activeSection) {
+            activeSection.classList.add('active');
+          }
+        });
+      });
+    });
+
+    // ===== ГАЛЕРЕЯ =====
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainImage = document.getElementById('galleryMainImage');
+      const thumbs = document.querySelectorAll('.gallery-thumb');
+
+      thumbs.forEach(thumb => {
+        thumb.addEventListener('click', function() {
+          thumbs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          mainImage.src = this.dataset.img;
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Три ДЭ — Виртуальная примерка</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+  <script src="js/modal.js" defer></script>
+
+  <style>
+    /* ===== СТРАНИЦА УСЛУГИ ===== */
+    .service-page {
+      padding: 40px 20px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-page .service-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .service-page .service-header h1 {
+      font-size: 42px;
+      font-weight: 700;
+      color: #3d332b;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .service-page .service-header p {
+      font-size: 21px;
+      color: #5B3E2E;
+      max-width: 700px;
+      margin: 12px auto 0;
+      opacity: 0.85;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 1);
+    }
+
+    .service-grid .info-block h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #3d332b;
+      margin-bottom: 16px;
+    }
+
+    .service-grid .info-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .service-grid .info-block ul li {
+      padding: 8px 0;
+      font-size: 18px;
+      color: #3d332b;
+      border-bottom: 1px solid rgba(91, 110, 110, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .service-grid .info-block ul li::before {
+      content: '➣';
+      color: #5B6E6E;
+      font-size: 27px;
+    }
+
+    .service-grid .form-block label {
+      display: block;
+      font-weight: 600;
+      color: #3d332b;
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .service-grid .form-block input,
+    .service-grid .form-block textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(91, 110, 110, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      font-size: 18px;
+      color: #3d332b;
+      transition: 0.3s;
+      margin-bottom: 16px;
+      font-family: inherit;
+    }
+
+    .service-grid .form-block input:focus,
+    .service-grid .form-block textarea:focus {
+      outline: none;
+      border-color: #5B6E6E;
+      box-shadow: 0 0 0 3px rgba(91, 110, 110, 0.1);
+    }
+
+    /* ===== ОБЯЗАТЕЛЬНЫЕ ПОЛЯ (звёздочка) ===== */
+    .required {
+      color: #d4af37;
+      font-weight: 900;
+      margin-left: 2px;
+    }
+
+    /* ===== КАНАЛЫ СВЯЗИ (как вкладки) ===== */
+    .contact-channel {
+      margin-bottom: 16px;
+    }
+
+    .contact-channel .channel-label {
+      font-weight: 600;
+      color: #3d332b;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .contact-channel .channel-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .contact-channel .channel-option {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: transparent;
+      border: 1px solid rgba(91, 110, 110, 0.15);
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+      color: #5B3E2E;
+      position: relative;
+    }
+
+    .contact-channel .channel-option:hover {
+      background: #d4af37;
+      color: #1a110a;
+    }
+
+    .contact-channel .channel-option.active {
+      background: #d4af37;
+      color: #1a110a;
+      font-weight: 600;
+    }
+
+    .contact-channel .channel-option.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 10%;
+      width: 80%;
+      height: 3px;
+      background: #5B6E6E;
+      border-radius: 2px;
+    }
+
+    .contact-channel .channel-option input[type="radio"] {
+      display: none;
+    }
+
+    .contact-channel .channel-icon {
+      font-size: 18px;
+    }
+
+    /* ===== ПОДПИСЬ ДЛЯ ФАЙЛА (с "или") ===== */
+    .file-upload-label {
+      display: block;
+      font-weight: 600;
+      color: #3d332b;
+      margin-bottom: 6px;
+      font-size: 21px;
+    }
+
+    .file-upload-label .or-text {
+      font-weight: 400;
+      opacity: 0.6;
+    }
+
+    /* ===== ФАЙЛ ===== */
+    .service-grid .form-block .file-upload {
+      border: 2px solid #5B6E6E;   /* ← СПЛОШНАЯ ЛИНИЯ, ЦВЕТ #5B6E6E */
+      border-radius: 16px;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-bottom: 16px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .service-grid .form-block .file-upload:hover {
+     border: 9px solid #5B6E6E;        /* ← ТОЛЩИНА КАК В ХЕДЕРЕ */
+  filter: blur(3px);               /* ← РАЗМЫТИЕ КАК В ХЕДЕРЕ */
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 0 20px rgba(91, 110, 110, 0.2); /* ← ЛЁГКОЕ СВЕЧЕНИЕ */
+}
+
+    .service-grid .form-block .file-upload span {
+      display: block;
+      font-size: 18px;
+      color: #5B3E2E;
+      opacity: 0.7;
+    }
+
+    .service-grid .form-block .file-upload .icon {
+      font-size: 40px;
+      display: block;
+      margin-bottom: 8px;
+      color: #5B6E6E;
+    }
+
+    /* ===== КНОПКА ===== */
+    .service-grid .form-block .btn-gold {
+      width: 100%;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      padding: 16px;
+    }
+
+    /* ===== ЧЕКБОКС ===== */
+    .service-grid .form-block .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: #5B3E2E;
+    }
+
+    .service-grid .form-block .checkbox input {
+      width: auto;
+      margin: 0;
+      accent-color: #5B6E6E;
+    }
+
+    /* ===== КОНТАКТЫ ВНИЗУ ===== */
+    .service-contacts {
+      margin-top: 40px;
+      text-align: center;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .service-contacts p {
+      font-size: 16px;
+      color: #3d332b;
+      margin-bottom: 8px;
+    }
+
+    .service-contacts a {
+      color: #5B6E6E;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .service-contacts a:hover {
+      color: #3d332b;
+    }
+
+    /* ===== АДАПТИВ ===== */
+    @media (max-width: 768px) {
+      .service-grid {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+      .service-page .service-header h1 {
+        font-size: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-grid {
+        padding: 16px;
+      }
+      .service-page .service-header h1 {
+        font-size: 26px;
+      }
+      .contact-channel .channel-options {
+        gap: 6px;
+      }
+      .contact-channel .channel-option {
+        padding: 6px 12px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ШАПКА ===== -->
+  <header class="header">
+    <div class="header-row">
+      <nav class="nav-left">
+        <a href="index.html#catalog" data-target="group1">Обои</a>
+        <a href="index.html#catalog" data-target="group2">Шторы</a>
+      </nav>
+      <a href="index.html" class="logo">
+        <span class="logo-text">три</span>
+        <span class="logo-icon">⮙</span>
+        <span class="logo-text">ДЭ</span>
+      </a>
+      <nav class="nav-right">
+        <a href="index.html#catalog" data-target="group1">Скатерти</a>
+        <a href="index.html#catalog" data-target="group1">Ковры</a>
+      </nav>
+    </div>
+    <div class="header-row services-row">
+      <nav class="nav-services">
+        <a href="primerka.html">Виртуальная примерка в интерьере</a>
+        <a href="pechat.html">Изготовление по вашим размерам и вашему изображению</a>
+        <a href="design.html">Дизайн-проект бесплатно</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== СТРАНИЦА УСЛУГИ ===== -->
+  <section class="service-page">
+    <div class="service-header">
+      <h1>Виртуальная примерка в интерьере</h1>
+      <p>Пришлите фото вашего интерьера — мы бесплатно покажем, как наши товары будут выглядеть у вас</p>
+    </div>
+
+    <div class="service-grid">
+
+      <!-- ЛЕВАЯ КОЛОНКА -->
+      <div class="info-block">
+        <h2>Как это работает</h2>
+        <ul>
+          <li>Сфотографируйте интерьер, где хотите видеть наши товары</li>
+          <li>Отправьте фото через форму, email или мессенджер</li>
+          <li>Дизайнер сделает визуализацию с вашим товаром</li>
+          <li>Вы получите фото с наложением и сможете принять решение</li>
+        </ul>
+        <p style="margin-top: 20px; font-size: 18px; color: #5B3E2E; opacity: 0.8;">
+          Также вы можете отправить фото на <a href="mailto:info@tride.ru" style="color: #5B6E6E; text-decoration: none; font-weight: 600;">info@tride.ru</a> или в «Макс»
+        </p>
+      </div>
+
+      <!-- ПРАВАЯ КОЛОНКА: ФОРМА -->
+      <form class="form-block" id="contactForm" novalidate>
+        <!-- ИМЯ (необязательно) -->
+        <label for="name">Ваше имя</label>
+        <input type="text" id="name" placeholder="Имя" />
+
+        <!-- ТЕЛЕФОН -->
+        <label for="phone">Номер телефона <span class="required" id="phone-required">*</span></label>
+        <input type="tel" id="phone" placeholder="+7 (912) 345-67-89" />
+
+        <!-- EMAIL -->
+        <label for="email">Ваш @e-mail <span class="required" id="email-required" style="display: none;">*</span></label>
+        <input type="email" id="email" placeholder="email@example.com" />
+<!-- ===== КАНАЛ СВЯЗИ (как вкладки) ===== -->
+<div class="contact-channel">
+  <span class="channel-label">Как с вами связаться?</span>
+  <div class="channel-options">
+    <label class="channel-option active">
+      <input type="radio" name="contact" value="max" checked />
+      <span class="channel-icon">
+        <img src="images/MAX-16x16.png" alt="Макс" class="channel-icon-img" />
+      </span>
+      Макс
+    </label>
+    <label class="channel-option">
+      <input type="radio" name="contact" value="email" />
+      <span class="channel-icon">@</span> e-mail
+    </label>
+    <label class="channel-option">
+      <input type="radio" name="contact" value="call" />
+      <span class="channel-icon">☎</span> Позвонить
+    </label>
+  </div>
+</div>
+
+        <!-- КОММЕНТАРИЙ (необязательно) -->
+        <label for="comment">Укажите, какие товары и с каким изображением вы хотели бы увидеть</label>
+        <textarea id="comment" rows="3" placeholder="Например: фотообои с цветами, шторы для гостиной..."></textarea>
+
+        <!-- ===== ЗАГРУЗКА ФОТО С ПОДПИСЬЮ "или" ===== -->
+        <label for="fileUpload" class="file-upload-label">
+          Или
+        </label>
+
+        <div class="file-upload" id="fileUpload">
+          <span class="icon">📸</span>
+          <span>Нажмите, чтобы загрузить фото интерьера</span>
+          <span>или перетащите его сюда</span>
+          <input type="file" accept="image/*" style="display: none;" />
+        </div>
+
+        <!-- ЧЕКБОКС (необязательно) -->
+        <div class="checkbox">
+          <input type="checkbox" id="agree" />
+          <label for="agree">Я согласен с <a href="#" style="color: #5B6E6E; text-decoration: none; font-weight: 600;">политикой</a> обработки моих персональных данных</label>
+        </div>
+
+        <button type="submit" class="btn-gold">Отправить заявку</button>
+      </form>
+
+    </div>
+
+    <!-- КОНТАКТЫ ВНИЗУ -->
+    <div class="service-contacts">
+      <p>📧 <a href="mailto:info@tride.ru">info@tride.ru</a></p>
+      <p>📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+      <p style="font-size: 18px; opacity: 0.6; margin-top: 8px;">Менеджер перезвонит или напишет в выбранный мессенджер</p>
+    </div>
+  </section>
+
+  <!-- ===== ПОДВАЛ ===== -->
+  <footer class="footer">
+    <div class="footer-logo">⮙ Три <span>ДЭ</span></div>
+    <p>Текстильный декор премиум-класса</p>
+    <div class="social-links">
+      <a href="#">Instagram</a>
+      <a href="#">Telegram</a>
+      <a href="#">VK</a>
+      <a href="#">YouTube</a>
+    </div>
+    <p class="copyright">© 2026 Три ДЭ. Все права защищены.</p>
+  </footer>
+
+  <!-- ===== СКРИПТЫ ===== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const phoneInput = document.getElementById('phone');
+      const emailInput = document.getElementById('email');
+      const phoneRequired = document.getElementById('phone-required');
+      const emailRequired = document.getElementById('email-required');
+      const channelOptions = document.querySelectorAll('input[name="contact"]');
+      const channelLabels = document.querySelectorAll('.channel-option');
+      const form = document.getElementById('contactForm');
+
+      // ===== ПЕРЕКЛЮЧЕНИЕ ОБЯЗАТЕЛЬНЫХ ПОЛЕЙ =====
+      function updateRequiredFields() {
+        const selected = document.querySelector('input[name="contact"]:checked');
+        if (!selected) return;
+
+        if (selected.value === 'email') {
+          emailInput.setAttribute('required', 'required');
+          emailRequired.style.display = 'inline';
+          phoneInput.removeAttribute('required');
+          phoneRequired.style.display = 'none';
+        } else {
+          phoneInput.setAttribute('required', 'required');
+          phoneRequired.style.display = 'inline';
+          emailInput.removeAttribute('required');
+          emailRequired.style.display = 'none';
+        }
+      }
+
+      updateRequiredFields();
+
+      channelOptions.forEach(opt => {
+        opt.addEventListener('change', updateRequiredFields);
+      });
+
+      channelLabels.forEach(label => {
+        label.addEventListener('click', function() {
+          const radio = this.querySelector('input[type="radio"]');
+          if (radio) {
+            radio.checked = true;
+            channelLabels.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            updateRequiredFields();
+          }
+        });
+      });
+
+      // ===== ОТПРАВКА ФОРМЫ =====
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Проверяем только обязательные поля (с атрибутом required)
+        const requiredFields = form.querySelectorAll('[required]');
+        let valid = true;
+
+        requiredFields.forEach(field => {
+          if (!field.value.trim()) {
+            field.style.borderColor = '#d4af37';
+            valid = false;
+          } else {
+            field.style.borderColor = 'rgba(91, 110, 110, 0.2)';
+          }
+        });
+
+        if (!valid) {
+          alert('Пожалуйста, заполните обязательные поля (отмечены звёздочкой).');
+          return;
+        }
+
+        // Имитация отправки
+        const btn = form.querySelector('.btn-gold');
+        btn.textContent = 'Отправка...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+          btn.textContent = 'Отправить заявку';
+          btn.disabled = false;
+
+          // ===== ВЫЗЫВАЕМ МОДАЛЬНОЕ ОКНО =====
+          showModal({
+            icon: 'ᗐ',
+            title: 'Заявка отправлена!',
+            message: 'Мы свяжемся с вами в ближайшее время.',
+            buttons: [
+              { text: '📂 Посмотреть каталог', link: 'index.html#catalog', class: 'btn-gold' },
+              { text: '💬 Написать в Макс', link: '#', class: 'btn-gold btn-outline', onClick: () => alert('Ссылка на Макс будет добавлена позже.') },
+              { text: '🏠 На главную', link: 'index.html', class: 'btn-gold btn-outline' }
+            ]
+          });
+        }, 800);
+      });
+    });
+  </script>
+
+</body>
+</html>
